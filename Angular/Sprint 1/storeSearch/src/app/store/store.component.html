@@ -1,5 +1,6 @@
 <h4>Add Store</h4>
 <hr />
+<div class="alert alert-primary" role="alert" [innerHTML]="message" *ngIf="message != ''"></div>
 <form [formGroup]="addStore" (ngSubmit)="onSubmit()" >
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Name </label>
