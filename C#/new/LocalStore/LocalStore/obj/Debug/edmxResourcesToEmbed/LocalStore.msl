@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocalStoreModelStoreContainer" CdmEntityContainer="LocalStoreEntities1">
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="LocalStoreModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStoreInfoes">
+      <EntityTypeMapping TypeName="LocalStoreModel.tblStoreInfo">
+        <MappingFragment StoreEntitySet="tblStoreInfo">
+          <ScalarProperty Name="StoreAuthId" ColumnName="StoreAuthId" />
+          <ScalarProperty Name="AdminApprove" ColumnName="AdminApprove" />
+          <ScalarProperty Name="SearchTags" ColumnName="SearchTags" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="StoreAddress" ColumnName="StoreAddress" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductInfoes">
+      <EntityTypeMapping TypeName="LocalStoreModel.tblProductInfo">
+        <MappingFragment StoreEntitySet="tblProductInfo">
+          <ScalarProperty Name="StoreAuthId" ColumnName="StoreAuthId" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
