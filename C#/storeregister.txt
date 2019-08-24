@@ -1,0 +1,85 @@
+public class store
+    {
+        [Key]
+        [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
+        public int storeid { get; set; }
+        public string Name{ get; set; }
+        public string address { get; set; }
+        public int pincode { get; set; }
+        public bool tags{ get; set; }
+        public bool userid{ get; set; }
+    }
+
+<h2>Create</h2>
+<div>
+    <label>Store Name</label>
+    @Html.TextBox("Name")
+</div>
+<div>
+    <label>address</label>
+    @Html.TextBox("address")
+</div>
+<div>
+    <label>pincode</label>
+    @Html.TextBox("pincode")
+</div>
+<div>
+    <label>tags</label>
+    @Html.TextBox("tags")
+</div>
+<div>
+    <label>userid</label>
+    @Html.TextBox("userid")
+</div>
+<div>
+    <button id="btnAdd">Add</button> 
+    @Html.ActionLink("Back to List", "ListRecords")
+</div>
+
+
+<script type="text/javascript">
+
+    $("#btnAdd").click(function () {
+
+        var PersonalDetails = {
+            "Store Name": $("#Name").val(),
+            "address": $("#address").val(),
+            "pincode": $("#pincode").val(),
+            "tags": $("#tags").val(),
+            "userid": $("#userid").val()
+        };
+        
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost:28206/api/storeregister',
+            data: JSON.stringify(storeregister),
+            contentType: "application/json;charset=utf-8",
+            processData: true,
+            success: function (data, status, xhr) {
+                alert("The result is : " + status);
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    });
+</script>
+
+public class PersonalDetailsController : ApiController
+    {
+        private MVCWebAPIContext db = new MVCWebAPIContext();
+        
+        [HttpPost]
+        public IHttpActionResult PostPersonalDetails([FromBody] Storeregister storeregister)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.PersonalDetails.Add(storeregister);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = storeregister.storeId }, storeregister);
+        }
+}
