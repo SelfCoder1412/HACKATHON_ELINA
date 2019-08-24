@@ -1,0 +1,10 @@
+{
+"StoreName":"Karthik Traders",
+"StoreAddress":"Chennai",
+"Pincode":"600100",
+"SearchTags":"hardware,cement,stones",
+"AdminApprove":0
+}
+
+http://localhost:51911/api/StoreRegistration
+POST
