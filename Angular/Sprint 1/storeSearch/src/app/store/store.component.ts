@@ -19,6 +19,8 @@ export class StoreComponent implements OnInit {
     this.loadForm();
   }
 
+  message = '';
+
   loadForm(){
     this.addStore = this.fb.group(
       {
@@ -26,21 +28,24 @@ export class StoreComponent implements OnInit {
         StoreAddress : [ '', Validators.required ],
         Pincode : [ '', Validators.required ],
         SearchTags : [ '', Validators.required ],
-        AdminApprove : [ '' ]
+        AdminApprove : [ '1' ]
       }
     );
   }
 
   onSubmit() { 
+    var _this = this;
     if(this.addStore.valid){
       this.service.registerStore(this.addStore.value)
         .then(
           (res) => {
-            alert('Stroe registered successfully');
+            _this.message = 'Store registered successfully';
+            this.loadForm();
           }
         ).catch(
           (err) => {
-            alert('Something went wrong');
+            _this.message = 'Something went wrong';
+            this.loadForm();
           }
         )
     }

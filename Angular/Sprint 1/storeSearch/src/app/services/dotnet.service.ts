@@ -9,7 +9,8 @@ export class DotnetService {
   private base : string = "http://localhost:51911";
   private httpOptions = {
     headers : new  HttpHeaders( {
-      "content-type" : "application/json"
+      "content-type" : "application/json",
+      "Access-Control-Allow-Origin" : "*"
     })
   }
 
@@ -19,6 +20,10 @@ export class DotnetService {
 
   public registerStore(data){
     return this.post('/api/StoreRegistration', data);
+  }
+
+  public registerProduct(data){
+    return this.post('/api/StoreProduct', data);
   }
 
   private post(url, data){

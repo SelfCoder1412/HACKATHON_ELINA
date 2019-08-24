@@ -1,10 +1,11 @@
 <h4>Add Product</h4>
 <hr />
-<form>
+<div class="alert alert-primary" role="alert" [innerHTML]="message" *ngIf="message != ''"></div>
+<form  [formGroup]="addProduct" (ngSubmit)="onSubmit()">
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Select Store </label>
         <div class="col-sm-10">
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="exampleFormControlSelect1" formControlName = "StoreAuthId">
                 <option value="56">Saravana Store</option>
                 <option>2</option>
                 <option>3</option>
@@ -17,28 +18,28 @@
         <label for="inputPassword" class="col-sm-2 col-form-label">Product name</label>
         <div class="col-sm-10">
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Product">
+                placeholder="Enter Product" formControlName = "Category">
         </div>
     </div>
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Price </label>
         <div class="col-sm-10">
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Price">
+                placeholder="Enter Price" formControlName = "Price">
         </div>
     </div>
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Brand </label>
         <div class="col-sm-10">
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Brand">
+                placeholder="Enter Brand" formControlName = "BrandName">
         </div>
     </div>
     <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Quantity </label>
         <div class="col-sm-10">
             <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Quantity" value="1" min="1">
+                placeholder="Enter Quantity" value="1" min="1" formControlName = "Quantity">
         </div>
     </div>
     <div class="form-group row">
