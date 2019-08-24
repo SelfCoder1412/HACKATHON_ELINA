@@ -37,8 +37,21 @@ namespace LocalStore.Controllers
         }
 
         // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(string StoreAuthId, [FromBody]tblProductInfo value)
         {
+
+            using (LocalStoreEntities1 entity = new LocalStoreEntities1())
+            {
+                var products = entity.tblProductInfoes.Where(p => p.StoreAuthId == StoreAuthId).ToList<tblProductInfo>();
+                if (products !=  null)
+                {
+                    //var product = products.Where(z => z.ProductId == value.ProductId).FirstOrDefault();
+                    //if (product)
+
+
+                }
+                entity.SaveChanges();
+            }
         }
 
         // DELETE: api/Product/5
