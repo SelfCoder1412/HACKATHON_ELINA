@@ -6,11 +6,8 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">Select Store </label>
         <div class="col-sm-10">
             <select class="form-control" id="exampleFormControlSelect1" formControlName = "StoreAuthId">
-                <option value="56">Saravana Store</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value=''>Select Store</option>
+                <option *ngFor="let v of stores.tblStoreInfo" value="v.StoreId">{{v.StoreName}}</option>
             </select>
         </div>
     </div>
