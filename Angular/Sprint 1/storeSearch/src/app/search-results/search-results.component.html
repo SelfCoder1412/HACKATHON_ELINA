@@ -1,1 +1,8 @@
-<p>search-results works!</p>
+<div class="card mt-2 mb-2" *ngFor="let v of stores.tblStoreInfo">
+    <div class="card-body">
+        <h5 class="card-title" style="color:blue">{{v.StoreName}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{v.Pincode}}</h6>
+        <p class="card-text">{{v.StoreAddress}}</p>
+        <a href="#" class="card-link">{{v.Price}}</a>
+    </div>
+</div>

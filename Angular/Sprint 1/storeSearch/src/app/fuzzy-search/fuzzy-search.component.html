@@ -1,1 +1,13 @@
-<p>fuzzy-search works!</p>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-12 mt-2">
+            <app-search (messageEvent)="receiveMessage($event)"></app-search>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-search-results [passData]="searchData"></app-search-results>
+        </div>
+    </div>
+</div>

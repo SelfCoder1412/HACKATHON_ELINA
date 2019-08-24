@@ -1,1 +1,6 @@
-<p>search works!</p>
+<div class="input-group" >
+    <div class="input-group-prepend" (click)="sendMessage()">
+        <span class="input-group-text" id="products-search-field">Search</span>
+    </div>
+    <input type="text" class="form-control" aria-describedby="products-search-field" [(ngModel)]="message" >
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fuzzy-search',
@@ -12,4 +12,10 @@ export class FuzzySearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchData: string;
+
+  receiveMessage($event) {
+    this.searchData = $event;
+    console.log(this.searchData);
+  }
 }
