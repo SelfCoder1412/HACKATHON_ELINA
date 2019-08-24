@@ -10,39 +10,3 @@ http://localhost:51911/api/StoreRegistration
 POST
 
 
-Data
----------
-
-
-{
-   "tblStoreInfo": [
-      {
-         "AdminApprove": "1",
-         "Pincode": "600100",
-         "SearchTags": "Cement",
-         "StoreAddress": "Chennai",
-         "StoreAuthId": "GoodLuckStore@LocalStore.com",
-         "StoreId": "1",
-         "StoreName": "Good Luck Store"
-      },
-      {
-         "AdminApprove": "0",
-         "Pincode": "600100",
-         "SearchTags": "Steel",
-         "StoreAddress": "Chennai",
-         "StoreAuthId": "NewStore@LocalStore.com",
-         "StoreId": "2",
-         "StoreName": "New Store"
-      },
-      {
-         "AdminApprove": "0",
-         "Pincode": "600100",
-         "SearchTags": "hardware,cement,stones",
-         "StoreAddress": "Chennai",
-         "StoreAuthId": "KarthikTraders@LocalStore.com",
-         "StoreId": "3",
-         "StoreName": "Karthik Traders"
-      }
-   ]
-}
- 
