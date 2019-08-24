@@ -8,3 +8,14 @@
 
 http://localhost:51911/api/StoreRegistration
 POST
+
+{
+"Category":"Cement",
+"BrandName":"Ultratech(Grade-PPC)",
+"Price":"0.00",
+"Quantity":1,
+"StoreAuthId":"1abc"
+}
+
+http://localhost:51911/api/Product
+POST
