@@ -4,9 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LocalStore.Controllers
 {
+    
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class StoreRegistrationController : ApiController
     {
         // GET api/values
@@ -20,12 +23,12 @@ namespace LocalStore.Controllers
         }
 
         // GET api/values/5
-        public tblStoreInfo Get(int id)
+        public tblStoreInfo Get(string StoreAuthId)
         {
             tblStoreInfo store = null;
             using (LocalStoreEntities1 entity = new LocalStoreEntities1())
             {
-                store = entity.tblStoreInfoes.Where(p => p.StoreId == id).FirstOrDefault();
+                store = entity.tblStoreInfoes.Where(p => p.StoreAuthId == StoreAuthId).FirstOrDefault();
             }
             return store;
         }
@@ -43,13 +46,32 @@ namespace LocalStore.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(string StoreAuthId, [FromBody]tblStoreInfo value)
         {
+            using (LocalStoreEntities1 entity = new LocalStoreEntities1())
+            {
+                var oldStore = entity.tblStoreInfoes.Where(p => p.StoreAuthId == StoreAuthId).FirstOrDefault();
+                if (oldStore != null)
+                {
+                    oldStore.StoreName = value.StoreName;
+                    oldStore.StoreAddress = value.StoreAddress;
+                    oldStore.Pincode = value.Pincode;
+                    oldStore.SearchTags = value.SearchTags;
+                    entity.SaveChanges();
+                }
+                
+            }
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public void Delete(string StoreAuthId)
         {
+            using (LocalStoreEntities1 entity = new LocalStoreEntities1())
+            {
+                var oldStore = entity.tblStoreInfoes.Where(p => p.StoreAuthId == StoreAuthId).FirstOrDefault();
+                entity.tblStoreInfoes.Remove(oldStore);
+                entity.SaveChanges();
+            }
         }
     }
 }
